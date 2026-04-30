@@ -57,15 +57,37 @@ const skillObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.skill-group').forEach(g => skillObserver.observe(g));
 
-// Contact form — mailto fallback (no backend needed)
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+// Contact form — Formspree
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
-  const name = this.name.value.trim();
-  const email = this.email.value.trim();
-  const message = this.message.value.trim();
-  const subject = encodeURIComponent(`Message from ${name} via gultechs.net`);
-  const body = encodeURIComponent(`From: ${name} <${email}>\n\n${message}`);
-  window.location.href = `mailto:info@gultechs.net?subject=${subject}&body=${body}`;
-  document.getElementById('form-status').textContent = 'Opening your email client…';
-  this.reset();
+  const status = document.getElementById('form-status');
+  const btn = this.querySelector('button[type="submit"]');
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  status.textContent = '';
+  status.style.color = 'var(--accent2)';
+
+  try {
+    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(this),
+    });
+
+    if (res.ok) {
+      status.textContent = 'Message sent ✓';
+      status.style.color = '#50fa7b';
+      this.reset();
+    } else {
+      status.textContent = 'Something went wrong. Please try again.';
+      status.style.color = '#ff5f57';
+    }
+  } catch {
+    status.textContent = 'Network error. Please try again.';
+    status.style.color = '#ff5f57';
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Send message';
 });
