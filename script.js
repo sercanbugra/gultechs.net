@@ -16,8 +16,8 @@ mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
 const phrases = [
   'Telecommunications Expert',
   'Software Developer',
+  'AI/ML Enthusiast',
   'Founder of GulTechs',
-  'ML Enthusiast',
 ];
 let phraseIdx = 0, charIdx = 0, deleting = false;
 const typedEl = document.getElementById('typed-text');
