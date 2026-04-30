@@ -65,7 +65,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   const message = this.message.value.trim();
   const subject = encodeURIComponent(`Message from ${name} via gultechs.net`);
   const body = encodeURIComponent(`From: ${name} <${email}>\n\n${message}`);
-  window.location.href = `mailto:sercan.bugra@gmail.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:info@gultechs.net?subject=${subject}&body=${body}`;
   document.getElementById('form-status').textContent = 'Opening your email client…';
   this.reset();
 });
