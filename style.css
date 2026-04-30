@@ -112,7 +112,7 @@ section { padding: 100px 0; }
 }
 
 .nav-logo { display: flex; align-items: center; }
-.nav-logo-img { height: 40px; width: auto; object-fit: contain; }
+.nav-logo-img { height: 56px; width: auto; object-fit: contain; }
 
 .nav-links {
   display: flex;
@@ -557,7 +557,7 @@ footer {
   .nav-links { display: none; }
   .menu-toggle { display: flex; }
   .nav-inner { padding: 14px 16px; }
-  .nav-logo-img { height: 32px; }
+  .nav-logo-img { height: 44px; }
 
   /* General */
   section { padding: 60px 0; }
