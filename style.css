@@ -161,7 +161,9 @@ section { padding: 100px 0; }
 /* ───── HERO ───── */
 #hero {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -551,9 +553,54 @@ footer {
 
 /* ───── RESPONSIVE ───── */
 @media (max-width: 768px) {
+  /* Nav */
   .nav-links { display: none; }
   .menu-toggle { display: flex; }
-  section { padding: 70px 0; }
-  .hero-actions { flex-direction: column; align-items: flex-start; }
-  .hero-content { gap: 40px; }
+  .nav-inner { padding: 14px 16px; }
+  .nav-logo-img { height: 32px; }
+
+  /* General */
+  section { padding: 60px 0; }
+  .container { padding: 0 16px; }
+  .section-title { font-size: 1.6rem; margin-bottom: 32px; }
+
+  /* Hero */
+  #hero { padding: 100px 16px 60px; min-height: 100svh; }
+  .hero-visual { display: none; }
+  .hero-title { font-size: clamp(1.5rem, 7vw, 2.4rem); height: auto; min-height: 1.4em; }
+  .hero-greeting { font-size: 1rem; }
+
+  /* About */
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-avatar { display: flex; flex-direction: column; align-items: center; }
+  .avatar-ring { width: 120px; height: 120px; }
+  .avatar-inner { font-size: 1.5rem; }
+  .about-text p { font-size: .95rem; }
+
+  /* Projects */
+  .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+  .project-card { padding: 24px; }
+
+  /* Skills */
+  .skills-grid { grid-template-columns: 1fr; gap: 16px; }
+  .skill-group { padding: 20px; }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .contact-form { padding: 20px; }
+  .contact-email { font-size: .9rem; word-break: break-all; }
+
+  /* Footer */
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+
+  /* Touch targets */
+  .btn { padding: 14px 24px; font-size: 1rem; }
+  .social-link { width: 48px; height: 48px; }
+  .mobile-link { padding: 14px 0; font-size: 1.05rem; }
+}
+
+@media (max-width: 400px) {
+  .hero-title { font-size: 1.4rem; }
+  .project-card { padding: 18px; }
+  .contact-form { padding: 16px; }
 }
